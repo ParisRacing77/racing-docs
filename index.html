@@ -1,5 +1,97 @@
-<div class="card-dark p-4 rounded-lg text-center cursor-pointer">
-    <span class="text-3xl block mb-2">🏁</span>
-    <h3 class="font-bold uppercase text-orange-500">Moto 2</h3>
-    <p class="text-xs text-gray-400">Lineup 2026</p>
-</div>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racing Tech & Lineups 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .racing-gradient { background: linear-gradient(135deg, #e11d48 0%, #4c1d95 100%); }
+        .card-dark { background: #1f2937; border: 1px solid #374151; transition: 0.3s; }
+        .card-dark:hover { border-color: #e11d48; transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans min-h-screen">
+
+    <!-- Header -->
+    <header class="racing-gradient p-6 shadow-2xl border-b-4 border-black sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-black italic tracking-tighter text-white">RACING TECH <span class="text-black text-2xl">2026</span></h1>
+            <nav class="hidden md:flex space-x-6 font-bold uppercase text-xs tracking-widest text-white">
+                <a href="#" class="hover:underline">MOTO</a>
+                <a href="#" class="hover:underline">SBK</a>
+                <a href="#" class="hover:underline">F1/F2</a>
+                <a href="#" class="hover:underline">STATISTICHE</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto p-6">
+        
+        <!-- Sezione Moto -->
+        <h2 class="text-xl font-black mb-6 border-l-4 border-red-600 pl-3 italic uppercase tracking-wider">Lineup Moto 2026</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="card-dark p-4 rounded-xl text-center">
+                <span class="text-3xl block mb-2">🏆</span>
+                <h3 class="font-bold text-red-500">MOTOGP</h3>
+                <p class="text-[10px] text-gray-400 uppercase tracking-tighter">Lineup & Tech</p>
+            </div>
+            <div class="card-dark p-4 rounded-xl text-center">
+                <span class="text-3xl block mb-2">🏁</span>
+                <h3 class="font-bold text-orange-500">MOTO 2</h3>
+                <p class="text-[10px] text-gray-400 uppercase tracking-tighter">Lineup 2026</p>
+            </div>
+            <div class="card-dark p-4 rounded-xl text-center">
+                <span class="text-3xl block mb-2">💨</span>
+                <h3 class="font-bold text-yellow-500">MOTO 3</h3>
+                <p class="text-[10px] text-gray-400 uppercase tracking-tighter">Lineup 2026</p>
+            </div>
+            <div class="card-dark p-4 rounded-xl text-center">
+                <span class="text-3xl block mb-2">👶</span>
+                <h3 class="font-bold text-green-500">MOTO 4</h3>
+                <p class="text-[10px] text-gray-400 uppercase tracking-tighter">Giovani Talenti</p>
+            </div>
+        </div>
+
+        <!-- Sezione SBK -->
+        <h2 class="text-xl font-black mb-6 border-l-4 border-blue-600 pl-3 italic uppercase tracking-wider">Lineup SBK 2026</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+            <div class="card-dark p-4 rounded-xl text-center border-l-2 border-blue-600">
+                <h3 class="font-bold">WORLDSBK</h3>
+                <p class="text-[10px] text-gray-400">DERIVATE DI SERIE</p>
+            </div>
+            <div class="card-dark p-4 rounded-xl text-center border-l-2 border-blue-400">
+                <h3 class="font-bold">SSP 600</h3>
+                <p class="text-[10px] text-gray-400">SUPERSPORT</p>
+            </div>
+            <div class="card-dark p-4 rounded-xl text-center border-l-2 border-blue-300">
+                <h3 class="font-bold">SPORTBIKE</h3>
+                <p class="text-[10px] text-gray-400">NUOVA CATEGORIA</p>
+            </div>
+        </div>
+
+        <!-- Sezione Auto -->
+        <h2 class="text-xl font-black mb-6 border-l-4 border-white pl-3 italic uppercase tracking-wider">Lineup Auto 2026</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+            <div class="card-dark p-4 rounded-xl text-center">
+                <span class="text-3xl block mb-2">🏎️</span>
+                <h3 class="font-bold text-blue-400">FORMULA 1</h3>
+            </div>
+            <div class="card-dark p-4 rounded-xl text-center">
+                <span class="text-3xl block mb-2">⚡</span>
+                <h3 class="font-bold text-blue-300">FORMULA 2</h3>
+            </div>
+            <div class="card-dark p-4 rounded-xl text-center">
+                <span class="text-3xl block mb-2">🏁</span>
+                <h3 class="font-bold text-blue-200">FORMULA 3</h3>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="p-10 bg-black text-center text-gray-500 text-xs border-t border-gray-800">
+        <p>© 2026 RACING TECH DOCS | DATABASE MOTORSPORT GRATUITO E LEGALE</p>
+    </footer>
+
+</body>
+</html>

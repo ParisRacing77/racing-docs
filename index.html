@@ -1,103 +1,16 @@
 <!DOCTYPE html>
-<html lang="it">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Racing Tech Docs</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<style>
-body{font-family:Arial,sans-serif}
-.gradient-red{background:linear-gradient(135deg,#DC2626 0%,#991B1B 100%)}
-.card-hover{transition:all 0.3s ease}
-.card-hover:hover{transform:translateY(-4px);box-shadow:0 20px 25px -5px rgba(0,0,0,0.3)}
-</style>
+    <title>Test Racing Tech</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-white min-h-screen">
-<div id="app"></div>
-<script>
-const docs=[
-{id:'motogp-tech-2026',title:'MotoGP 2026 - Guida Tecnica',category:'MotoGP',description:'Analisi tecnica dettagliata',icon:'🔧',tags:['Tecnica','2026'],date:'2026-02'},
-{id:'motogp-pilots-2025',title:'Piloti MotoGP 2025',category:'MotoGP',description:'Caratteristiche piloti',icon:'🏍️',tags:['Piloti','2025'],date:'2025-11'},
-{id:'wsbk-2025',title:'WorldSBK 2025',category:'WorldSBK',description:'Analisi WorldSBK',icon:'🏁',tags:['WorldSBK','2025'],date:'2025-11'},
-{id:'wsbk-2026',title:'New Entry WorldSBK 2026',category:'WorldSBK',description:'Nuovi piloti 2026',icon:'🆕',tags:['2026'],date:'2025-12'},
-{id:'bsb-civ-2025',title:'BSB e CIV 2025',category:'Nazionali',description:'Campionati nazionali',icon:'🏆',tags:['BSB','CIV'],date:'2025-10'},
-{id:'motojunior-2026',title:'MotoJunior 2026',category:'Giovanili',description:'Categorie giovanili',icon:'👶',tags:['MotoJunior'],date:'2026-01'}
-];
-const cats=[
-{id:'all',name:'Tutti',icon:'🏠'},
-{id:'MotoGP',name:'MotoGP',icon:'🏆'},
-{id:'WorldSBK',name:'WorldSBK',icon:'📖'},
-{id:'Nazionali',name:'Nazionali',icon:'📅'},
-{id:'Giovanili',name:'Giovanili',icon:'👥'}
-];
-let s={cat:'all',search:'',dark:true,sel:null};
-function r(){
-const f=docs.filter(d=>(s.cat==='all'||d.category===s.cat)&&(s.search===''||d.title.toLowerCase().includes(s.search.toLowerCase())));
-document.getElementById('app').innerHTML=`
-<header class="sticky top-0 z-50 bg-gray-800 shadow-lg border-b-4 border-red-600">
-<div class="max-w-7xl mx-auto px-4 py-4">
-<div class="flex items-center justify-between">
-<div class="flex items-center space-x-3">
-<div class="w-10 h-10 gradient-red rounded-lg flex items-center justify-center"><span class="text-2xl">🏍️</span></div>
-<div><h1 class="text-2xl font-bold text-red-500">Racing Tech Docs</h1><p class="text-xs text-gray-400">Analisi Tecnica Racing</p></div>
-</div>
-<button onclick="s.dark=!s.dark;r()" class="p-2 rounded-lg bg-gray-700 hover:bg-gray-600">\${s.dark?'☀️':'🌙'}</button>
-</div>
-</div>
-</header>
-<div class="max-w-7xl mx-auto px-4 py-8">
-<div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-<div class="lg:col-span-1">
-<div class="bg-gray-800 rounded-xl shadow-lg p-6">
-<h2 class="text-lg font-bold mb-4">📄 Categorie</h2>
-<nav class="space-y-2">
-\${cats.map(c => \`
-  <button onclick="s.cat='\${c.id}';r()" class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg \${s.cat===c.id?'gradient-red text-white':'hover:bg-gray-700 text-gray-300'}">
-    <span>\${c.icon}</span><span>\${c.name}</span>
-  </button>
-\`).join('')}
-</nav>
-<div class="mt-6 pt-6 border-t border-gray-700 text-center">
-<p class="text-gray-400 text-sm">Totale Documenti</p>
-<p class="text-3xl font-bold text-red-500 mt-1">\${docs.length}</p>
-</div>
-</div>
-</div>
-<div class="lg:col-span-3">
-<div class="bg-gray-800 rounded-xl shadow-lg p-6 mb-6">
-<input type="text" placeholder="Cerca..." oninput="s.search=this.value;r()" class="w-full px-4 py-3 rounded-lg bg-gray-700 border-2 border-gray-600 text-white focus:border-red-500 outline-none"/>
-</div>
-<div class="mb-4"><h2 class="text-xl font-bold">\${s.cat==='all'?'Tutti i Documenti':cats.find(c=>c.id===s.cat).name}</h2><span class="text-sm text-gray-400">\${f.length} documenti</span></div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-\${f.map(d=>\`
-<div class="card-hover bg-gray-800 rounded-xl shadow-lg overflow-hidden border-2 border-gray-700 hover:border-red-500 cursor-pointer">
-<div class="gradient-red p-4"><div class="flex justify-between"><span class="text-4xl">\${d.icon}</span><span class="text-xs bg-white/20 px-2 py-1 rounded-full text-white">\${d.date}</span></div></div>
-<div class="p-6">
-<h3 class="text-lg font-bold mb-2">\${d.title}</h3>
-<p class="text-sm text-gray-400 mb-4">\${d.description}</p>
-<div class="flex flex-wrap gap-2 mb-4">\${d.tags.map(t=>\<span class="text-xs px-2 py-1 rounded-full bg-gray-700 text-gray-300">\${t}</span>\).join('')}</div>
-<button class="w-full gradient-red text-white px-4 py-2 rounded-lg font-medium">Apri Documento →</button>
-</div>
-</div>
-\`).join('')}
-</div>
-\${f.length===0?'<div class="bg-gray-800 rounded-xl shadow-lg p-12 text-center"><div class="text-6xl mb-4">🔍</div><h3 class="text-xl font-bold mb-2">Nessun documento trovato</h3></div>':''}
-</div>
-</div>
-</div>
-<footer class="bg-gray-800 border-t-4 border-red-600 mt-12">
-<div class="max-w-7xl mx-auto px-4 py-8">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<div><h3 class="font-bold text-lg mb-3">Racing Tech Docs</h3><p class="text-sm text-gray-400">Documentazione tecnica completa MotoGP e Racing</p></div>
-<div><h3 class="font-bold text-lg mb-3">Categorie</h3><ul class="text-sm text-gray-400 space-y-2"><li>MotoGP</li><li>WorldSBK</li><li>Nazionali</li><li>Giovanili</li></ul></div>
-<div><h3 class="font-bold text-lg mb-3">Info</h3><p class="text-sm text-gray-400">Ultimo aggiornamento: Feb 2026</p><p class="text-sm text-gray-400 mt-2">©️ 2026 Racing Tech Docs</p></div>
-</div>
-</div>
-</footer>
-\`;
-}
-r();
-</script>
+<body class="bg-gray-900 text-white flex items-center justify-center h-screen">
+    <div class="text-center">
+        <h1 class="text-4xl font-bold text-red-600 mb-4">🏎️ Racing Tech Docs</h1>
+        <p class="text-xl">Se vedi questa scritta, il sito FUNZIONA!</p>
+        <div class="mt-8 p-4 bg-gray-800 rounded-lg shadow-lg">
+            <p class="text-gray-400 italic">Ora possiamo rimettere il codice complesso.</p>
+        </div>
+    </div>
 </body>
 </html>
-     

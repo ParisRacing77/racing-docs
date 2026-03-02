@@ -2,49 +2,24 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Racing Tech Docs</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #111827; }
-        .gradient-red { background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%); }
-    </style>
 </head>
-<body class="text-white">
-    <div id="app"></div>
-    <script>
-        const docs = [
-            {title:'MotoGP 2026 - Tecnica', cat:'MotoGP', icon:'🔧'},
-            {title:'Piloti 2025', cat:'MotoGP', icon:'🏍️'},
-            {title:'WorldSBK 2025', cat:'WorldSBK', icon:'🏁'}
-        ];
-        const cats = ['Tutti', 'MotoGP', 'WorldSBK'];
-        
-        function r(filter = 'Tutti') {
-            const f = filter === 'Tutti' ? docs : docs.filter(d => d.cat === filter);
-            document.getElementById('app').innerHTML = `
-                <header class="p-4 bg-gray-800 border-b-4 border-red-600 flex items-center space-x-3">
-                    <div class="p-2 gradient-red rounded">🏍️</div>
-                    <h1 class="text-2xl font-bold text-red-500">Racing Tech Docs</h1>
-                </header>
-                <div class="p-6 grid grid-cols-1 md:grid-cols-4 gap-6">
-                    <div class="bg-gray-800 p-4 rounded-xl">
-                        <h2 class="font-bold mb-4 text-red-500">Categorie</h2>
-                        \${cats.map(c => \<button onclick="r('\${c}')" class="block w-full text-left p-2 hover:bg-gray-700 rounded">\${c}</button>\).join('')}
-                    </div>
-                    <div class="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-4">
-                        \${f.map(d => \`
-                            <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-red-500">
-                                <span class="text-4xl">\${d.icon}</span>
-                                <h3 class="text-xl font-bold mt-2">\${d.title}</h3>
-                                <p class="text-gray-400 text-sm">Categoria: \${d.cat}</p>
-                            </div>
-                        \`).join('')}
-                    </div>
-                </div>
-            `;
-        }
-        r();
-    </script>
+<body class="bg-gray-900 text-white font-sans">
+    <header class="p-6 bg-gray-800 border-b-4 border-red-600 shadow-xl">
+        <h1 class="text-3xl font-bold text-red-600 text-center">🏍️ RACING TECH DOCS</h1>
+    </header>
+    <main class="max-w-4xl mx-auto p-8 text-center">
+        <div class="bg-gray-800 p-10 rounded-2xl shadow-2xl border border-gray-700">
+            <h2 class="text-2xl mb-6">Benvenuto nel Portale Tecnico</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 bg-gray-700 rounded-lg hover:bg-red-900 cursor-pointer">🏆 MotoGP 2026</div>
+                <div class="p-4 bg-gray-700 rounded-lg hover:bg-red-900 cursor-pointer">🏁 WorldSBK 2025</div>
+                <div class="p-4 bg-gray-700 rounded-lg hover:bg-red-900 cursor-pointer">🔧 Analisi Tecnica</div>
+                <div class="p-4 bg-gray-700 rounded-lg hover:bg-red-900 cursor-pointer">📅 Calendari</div>
+            </div>
+            <p class="mt-8 text-gray-400 italic">Sito in fase di aggiornamento...</p>
+        </div>
+    </main>
 </body>
 </html>
